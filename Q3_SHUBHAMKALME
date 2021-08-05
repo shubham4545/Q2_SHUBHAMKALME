@@ -1,0 +1,23 @@
+function countingValleys($steps, $path) {
+     
+  $valley = 0;
+  $sealevel = 0;
+  $newPath =  str_split($path);
+  $c = count($newPath);
+  
+  if ($steps == $c && $c >= 2) {
+  
+      for($i = 0; $i < $c; $i++) {
+          
+          if ($newPath[$i] == "D") {
+             $sealevel -= 1;
+          } else {
+              $sealevel += 1;
+          }
+          if ($sealevel == 0 && $newPath[$i] == "U") {
+             $valley += 1;
+          
+          }
+      } 
+  return $valley;
+  }
